@@ -1,0 +1,30 @@
+.container {
+    padding: 10px;
+    margin: auto;
+}
+
+.margin-r15 {
+    margin-right: 15px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bold-font {
+    font-weight: bolder;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.my-form-field .mat-form-field-wrapper {
+    margin-bottom: -1.25em !important;
+}
