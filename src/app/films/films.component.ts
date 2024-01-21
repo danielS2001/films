@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProgressLogModalComponent } from '../progress-log-modal/progress-log-modal.component';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 
 @Component({
@@ -13,14 +14,14 @@ import { ProgressLogModalComponent } from '../progress-log-modal/progress-log-mo
 })
 
 export class FilmsComponent implements OnInit {
-  modalDialog: MatDialogRef<ProgressLogModalComponent> | undefined;
+  dialogRef: MatDialogRef<ConfirmationDialogComponent> | undefined;
   filmGroup!: FormGroup;
   public movies: film[] = [];
   duration = '';
   dataSourceFilms = new MatTableDataSource<film>([]);
 
   displayedColumns: string[] = ['watched', 'name', 'progress', 'action'];
-  constructor(public dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.movies = JSON.parse(localStorage.getItem('films') || '[]');
@@ -39,10 +40,24 @@ export class FilmsComponent implements OnInit {
   /* It physically deletes all data from localStorage
   */
   deleteAll(): void {
-    if(confirm('Are you sure you want to all the data? \nImportant note: If you do not have a backup, all data will be forever lost.')) {
-      localStorage.clear();
-      window.location.reload();
-    }
+    this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '450px',
+      disableClose: true,
+      data: 'deleteAll'
+    });
+    this.dialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete all the data? NOTE: If you do not have a backup, all data will be forever lost.';
+    this.dialogRef.afterClosed().subscribe(
+      (response) => {
+        console.log(response);
+        if(response === 'exit') {
+          return false;
+        } else if (response === 'deleteLs') {
+          localStorage.clear();
+          this.movies = [];
+          this.storeAndShowInTable(this.movies);
+        }
+      }
+    );
   }
 
   setFilmInLocalStorage(films: film[]): void {
@@ -66,12 +81,38 @@ export class FilmsComponent implements OnInit {
   */
   addFilm(): void {
     this.movies = this.getListFromLocalStorage();
-    const newFilm: film = { 
+    
+    const newFilm: film = {
       name: String(this.filmGroup.controls.fname.value),
       duration: (Number(this.filmGroup.controls.fhours.value)*60) + Number(this.filmGroup.controls.fminutes.value),
-      progress: 0, watched: false, percent: 0};
-    this.movies.push(newFilm);
-    this.storeAndShowInTable(this.movies);
+      progress: 0, watched: false, percent: 0
+    };
+
+    if (this.movies.length === 0) {
+      this.movies.push(newFilm);
+      this.storeAndShowInTable(this.movies);
+    } else {
+      this.movies.every((film) => {
+        if(film.name === String(this.filmGroup.controls.fname.value)) {
+          this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+            width: '300px',
+            disableClose: true,
+            data: 'duplicated'
+          });
+          this.dialogRef.componentInstance.confirmMessage = "You've already recorded a film with that name, please use another name";
+          this.dialogRef.afterClosed().subscribe(
+            (response) => {
+              if(response === 'exit') {
+                return false;
+              }
+            }
+          );
+        } else {
+          this.movies.push(newFilm);
+          this.storeAndShowInTable(this.movies);
+        }
+      });
+    }
   }
 
   /* It modifies the percent and progress when a film is checked.
@@ -96,18 +137,31 @@ export class FilmsComponent implements OnInit {
   *@param name of the film to delete. 
   */
   deleteOne(name: string): void {
-    if(confirm('Are you sure you want to delete the film "'+name +'"?')) {
-      this.movies = this.getListFromLocalStorage();
-      this.movies = this.movies.filter(item => item.name !== name);
-      this.storeAndShowInTable(this.movies);
-    }
+    this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '300px',
+      disableClose: true,
+      data: 'deleteOne'
+    });
+    this.dialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete the film "'+name +'"?';
+    this.dialogRef.afterClosed().subscribe(
+      (response) => {
+        if(response === 'exit') {
+          return false;
+        } else if (response === 'deleteOne') {
+          this.movies = this.getListFromLocalStorage();
+          this.movies = this.movies.filter(item => item.name !== name);
+          this.storeAndShowInTable(this.movies);
+        }
+      }
+    );
   }
 
   /* It opens a modal to the progress Log component
   * @param movie The name of the film that will be updated in the modal.
   */
   recordProgress(movie: film): void {
-    const alert = this.modalDialog = this.dialog.open(ProgressLogModalComponent, {
+    const alert = this.dialog.open(ProgressLogModalComponent, {
+      width: '300px',
       data: movie,
     });
 

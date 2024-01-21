@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,12 +15,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProgressLogModalComponent } from './progress-log-modal/progress-log-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
-    ProgressLogModalComponent
+    ProgressLogModalComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

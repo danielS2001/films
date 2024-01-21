@@ -1,0 +1,40 @@
+<div class="container" *ngIf="duplicatedName">
+    <h2 class="flex-center">Alert</h2>
+    <div class="grid-noBottom">
+        <div class="col-12 flex-center">
+            <mat-label>{{confirmMessage}}</mat-label>
+        </div>
+        
+        <div class="col-12 flex-right">
+            <button mat-flat-button color="warn" class="margin-r15" (click)="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="deleteAll">
+    <h2 class="flex-center">Alert</h2>
+    <div class="grid-noBottom">
+        <div class="col-12 flex-center">
+            <mat-label>{{confirmMessage}}</mat-label>
+        </div>
+        
+        <div class="col-12 flex-right">
+            <button mat-flat-button color="warn" class="margin-r15" (click)="deleteLs()">Accept</button>
+            <button mat-flat-button color="primary" class="margin-r15" (click)="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="deleteOne">
+    <h2 class="flex-center">Alert</h2>
+    <div class="grid-noBottom">
+        <div class="col-12 flex-center">
+            <mat-label>{{confirmMessage}}</mat-label>
+        </div>
+        
+        <div class="col-12 flex-right">
+            <button mat-flat-button color="warn" class="margin-r15" (click)="delete()">Accept</button>
+            <button mat-flat-button color="primary" class="margin-r15" (click)="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>

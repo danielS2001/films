@@ -4,12 +4,12 @@
   </div>
 
   <div class="col-12 flex-right">
-    <button class="display-inline margin-r15 red-color" color='warn' mat-raised-button (click)="deleteAll()">Delete All</button>
+    <button class="display-inline margin-r20 red-color" color='warn' mat-raised-button (click)="deleteAll()">Delete All</button>
   </div>
 </div>
 
 <form [formGroup]="filmGroup">
-  <mat-card class="margin-20">
+  <div class="margin-20">
     <div class="grid-noBottom">
       <div class="col-12">
         <mat-form-field class="full-width">
@@ -20,9 +20,10 @@
       </div>
       <div class="col-12">
         <mat-error *ngIf="filmGroup.get('fname')?.hasError('required') && filmGroup.get('fname')?.touched">
-          Error: Please, type the name of the film.
+          Please, type the name of the film.
         </mat-error>
       </div>
+      <br>
 
       <div class="col-4">
         <mat-form-field class="full-width">
@@ -43,29 +44,29 @@
       
       <div class="col-4">
         <mat-error *ngIf="filmGroup.get('fhours')?.hasError('required') && filmGroup.get('fhours')?.touched">
-          Error: Avoid letters and empty!
+          No letters nor empty!
         </mat-error>
         <mat-error *ngIf="filmGroup.get('fhours')?.hasError('min') && filmGroup.get('fhours')?.touched">
-          Error: Min number is 0!
+          Min number is 0!
         </mat-error>
         <mat-error *ngIf="filmGroup.get('fhours')?.hasError('max') && filmGroup.get('fhours')?.touched">
-          Error: Max number is 23!
+          Max number is 23!
         </mat-error>
       </div>
       <div class="col-4">
         <mat-error *ngIf="filmGroup.get('fminutes')?.hasError('required') && filmGroup.get('fminutes')?.touched">
-          Error: Avoid letters and empty!
+          No letters nor empty!
         </mat-error>
         <mat-error *ngIf="filmGroup.get('fminutes')?.hasError('min') && filmGroup.get('fminutes')?.touched">
-          Error: Min number is 0!
+          Min number is 0!
         </mat-error>
         <mat-error *ngIf="filmGroup.get('fminutes')?.hasError('max') && filmGroup.get('fminutes')?.touched">
-          Error: Max number is 59!
+          Max number is 59!
         </mat-error>
       </div>
       <div class="col-4"></div>
     </div>
-  </mat-card>
+  </div>
 </form>
 
 <mat-card class="margin-20">
@@ -93,7 +94,7 @@
 
         <!-- Watched Column -->
         <ng-container matColumnDef="watched">
-          <th mat-header-cell *matHeaderCellDef> <mat-icon>check_circle</mat-icon> </th>
+          <th mat-header-cell *matHeaderCellDef> <mat-icon>check</mat-icon> </th>
           <td mat-cell *matCellDef="let element">
             <mat-checkbox #checkbox name="checkbox" (change)="updateFilm(element.name, checkbox.checked)"
             [checked]="element.watched" color="warn"

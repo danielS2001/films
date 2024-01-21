@@ -46,6 +46,11 @@ export class ProgressLogModalComponent implements OnInit {
       if(film.name === this.movieObj.name) {
         film.progress = Number(this.progressGroup.controls.fprogress.value);
         film.percent = Math.round((Number(this.progressGroup.controls.fprogress.value) * 100) / this.movieObj.duration);
+        if(film.progress === film.duration) {
+          film.watched = true;
+        } else {
+          film.watched = false;
+        }
       }
     });
     this.dialogRef.close(this.movies);
