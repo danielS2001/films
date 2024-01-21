@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1705731501288,
-  "index": "/films/index.html",
+  "timestamp": 1705870556654,
+  "index": "/film/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/films/favicon.ico",
-        "/films/index.html",
-        "/films/main.dc439fbc1773b5ea.js",
-        "/films/manifest.webmanifest",
-        "/films/polyfills.d551bebe10175c9d.js",
-        "/films/runtime.4c3b05b42fa735d3.js",
-        "/films/styles.6507e0fc35322572.css"
+        "/film/favicon.ico",
+        "/film/index.html",
+        "/film/main.524c1c2774f76ea5.js",
+        "/film/manifest.webmanifest",
+        "/film/polyfills.d551bebe10175c9d.js",
+        "/film/runtime.4c3b05b42fa735d3.js",
+        "/film/styles.e222103403f7a6e3.css"
       ],
       "patterns": []
     },
@@ -29,35 +29,35 @@
         "ignoreVary": true
       },
       "urls": [
-        "/films/assets/icons/icon-128x128.png",
-        "/films/assets/icons/icon-144x144.png",
-        "/films/assets/icons/icon-152x152.png",
-        "/films/assets/icons/icon-192x192.png",
-        "/films/assets/icons/icon-384x384.png",
-        "/films/assets/icons/icon-512x512.png",
-        "/films/assets/icons/icon-72x72.png",
-        "/films/assets/icons/icon-96x96.png"
+        "/film/assets/icons/icon-128x128.png",
+        "/film/assets/icons/icon-144x144.png",
+        "/film/assets/icons/icon-152x152.png",
+        "/film/assets/icons/icon-192x192.png",
+        "/film/assets/icons/icon-384x384.png",
+        "/film/assets/icons/icon-512x512.png",
+        "/film/assets/icons/icon-72x72.png",
+        "/film/assets/icons/icon-96x96.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/films/assets/icons/icon-128x128.png": "b1f06c7d714abb4a0cc4d1f7c954feb26826e4c4",
-    "/films/assets/icons/icon-144x144.png": "96a0d629765c1bc85d9263c6bc83094ca776d267",
-    "/films/assets/icons/icon-152x152.png": "b1fbbee3902eb96a7658e3bb006f31f78ca5a44c",
-    "/films/assets/icons/icon-192x192.png": "e4211163bf0911688fbfb80278d8ff4d2f77691d",
-    "/films/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/films/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/films/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
-    "/films/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
-    "/films/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/films/index.html": "483ec98e17d2e5b4a3e5947c02e8260c40b3b116",
-    "/films/main.dc439fbc1773b5ea.js": "a7b52410410c33fbb2c838061eec6350f369d9e4",
-    "/films/manifest.webmanifest": "c7883092f71401883bad48fdbf53a7a988e8adc6",
-    "/films/polyfills.d551bebe10175c9d.js": "7399b00a60241d53765f439bc71a9e55bbf33cf5",
-    "/films/runtime.4c3b05b42fa735d3.js": "69623416af86f86a54d4f7a8926182206f397141",
-    "/films/styles.6507e0fc35322572.css": "1c428c356d3ad7dd744d877cb29ee6f7ce441188"
+    "/film/assets/icons/icon-128x128.png": "b1f06c7d714abb4a0cc4d1f7c954feb26826e4c4",
+    "/film/assets/icons/icon-144x144.png": "96a0d629765c1bc85d9263c6bc83094ca776d267",
+    "/film/assets/icons/icon-152x152.png": "b1fbbee3902eb96a7658e3bb006f31f78ca5a44c",
+    "/film/assets/icons/icon-192x192.png": "e4211163bf0911688fbfb80278d8ff4d2f77691d",
+    "/film/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/film/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/film/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
+    "/film/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
+    "/film/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/film/index.html": "6113dc332c8d9234f38e066d2b26527693609b98",
+    "/film/main.524c1c2774f76ea5.js": "ce8507824d9a6a223c983a2b14028a7ea8518114",
+    "/film/manifest.webmanifest": "c7883092f71401883bad48fdbf53a7a988e8adc6",
+    "/film/polyfills.d551bebe10175c9d.js": "7399b00a60241d53765f439bc71a9e55bbf33cf5",
+    "/film/runtime.4c3b05b42fa735d3.js": "69623416af86f86a54d4f7a8926182206f397141",
+    "/film/styles.e222103403f7a6e3.css": "ad031088ae54403a5cb5d69df7c9e8aa8bdfbc48"
   },
   "navigationUrls": [
     {
